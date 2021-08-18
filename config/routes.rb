@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :gardens do
+    resources :plants, only: [:create] # need to know the garden associated
+  end
+  resources :plants, only: [:destroy] # just need to know the id of the plant to delete
 end
